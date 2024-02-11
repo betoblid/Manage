@@ -1,4 +1,4 @@
-import React from "react";
+
 import logo from '../../assets/logo.svg';
 import Fece from '../../assets/icon-facebook.svg';
 import Insta from '../../assets/icon-instagram.svg';

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 // import Swiper core and required modules
 import { Navigation, Pagination, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -19,13 +18,14 @@ interface SlideProps {
 }
 const Slide = ({ dado }: SlideProps) => {
 
-  const [widthScreen, setWidthScreen] = useState<number>((window.innerWidth < 700) ? 1 : (window.innerWidth > 1000) ? 3 : 2)
+  const widthScreenuseState = (window.innerWidth < 700) ? 1 : (window.innerWidth > 1000) ? 3 : 2
+
   return (
     <Swiper
       // install Swiper modules
       modules={[Navigation, Pagination, A11y]}
       spaceBetween={5}
-      slidesPerView={ widthScreen}
+      slidesPerView={ widthScreenuseState}
       navigation
       pagination={{ clickable: false }}
       scrollbar={{ draggable: false }}>
