@@ -7,6 +7,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Deposition from "../deposition";
+import { userMediaQuery } from '../../Hooks/userMediaQuery';
+
 
 interface SlideProps {
   dado: {
@@ -18,14 +20,17 @@ interface SlideProps {
 }
 const Slide = ({ dado }: SlideProps) => {
 
-  const widthScreenuseState = (window.innerWidth < 700) ? 1 : (window.innerWidth > 1000) ? 3 : 2
+  const medium = userMediaQuery("(min-width: 700px) and (max-width: 1000px)")
+  const small = userMediaQuery("(max-width: 700px)")
+
+  const HandleSlidesViews = small ? 1 : medium ? 2 : 3
 
   return (
     <Swiper
       // install Swiper modules
       modules={[Navigation, Pagination, A11y]}
       spaceBetween={5}
-      slidesPerView={ widthScreenuseState}
+      slidesPerView={ HandleSlidesViews }
       navigation
       pagination={{ clickable: false }}
       scrollbar={{ draggable: false }}>
